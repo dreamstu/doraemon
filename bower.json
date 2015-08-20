@@ -1,0 +1,9 @@
+{
+  "name": "doraemon",
+  "version": "0.0.1",
+  "description": "doraemon bower",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "vue": "~0.12.10"
+  }
+}

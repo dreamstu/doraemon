@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CMD Module Build Tools （CMBT）</title>
+	<link rel="stylesheet" href="../styles/normalize.css">
+	<link rel="stylesheet" href="../styles/mui.css">
+	<link rel="stylesheet" href="../styles/layer.css">
+	<link rel="stylesheet" href="../styles/layout.css">
+	<link rel="stylesheet" href="../styles/index.css">
+</head>
+<body id="app">
+	<div class="wrapper">
+		<div class="mui-row">
+			<div class="mui-col-xs-3 left" v-on="click:closeInfoEvent">
+				<div class="buttons">
+					<ul class="menu">
+						<li class="item" v-on="click:openFolder" title="打开文件夹">
+						<span class="mui-icon mui-icon-folder-open"></span>
+						<input type="text" class="dn" v-model="inFolder" lazy nwdirectory>
+						<input type="file" class="dn" v-el="inFolder" v-on="change:open" lazy nwdirectory>
+						</li>
+						<li class="item" v-on="click:showLogPanel" title="查看日志">
+						<span class="mui-icon mui-icon-list-alt"></span>
+						</li>
+						<li class="item" title="关于" v-on="click:about">
+						<span class="mui-icon mui-icon-info-sign"></span>
+						</li>
+					</ul>
+				</div>
+				<div class="list">
+					<ul id="list">
+						<li class="active" v-show="showFolder">
+							<span v-text="folderName"></span>
+							<span class="mui-icon mui-icon-chevron-right r"></span>
+						</li>
+					</ul>
+				</div>
+				<div class="options">
+					<span class="caption">配置</span>
+					<div class="box">
+						<p>
+							<label for="idleading">指定idleading</label>
+							<input type="text" v-el="idleading" v-model="idleading" lazy class="idleading" placeholder="输入idleading" value="modules" id="idleading">
+						</p>
+
+						<p>
+							<label v-on="click:out" class="outbtn">
+							<i class="mui-icon mui-icon-folder-open"></i>
+							选择输出目录
+							</label>
+							<span class="outf" v-text="outFolder">
+								
+							</span>
+							<input type="file" v-el="outFolder" v-model="outFolder" nwdirectory lazy class="dn">
+						</p>
+						
+						<p>
+							<input type="checkbox" v-model="uglify" id="uglify">
+							<label for="uglify">开启压缩</label>
+						</p>
+
+						<p>
+							<input type="checkbox" v-model="moreLog" id="moreLog">
+							<label for="moreLog">输出详细日志</label>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="mui-col-xs-9 right">
+				<div class="box">
+					<ul id="items" class="items" v-on="click:viewInfo">
+					  <li v-repeat="items" class="item">
+					     <input type="checkbox" name="chk" value="{{$value}}">
+					     <span>{{$value}}</span>
+					  </li>
+					</ul>
+				</div>
+				<div id="info" class="info" v-show="showInfo" v-transition="expand">
+					<p v-repeat="pkg">
+					<span class="label">{{$key}}：</span>
+					<span>{{$value}}</span>
+				</div>
+
+				<div class="tools">
+					<input type="checkbox" name="checkall" v-model="checkAll" id="checkall">
+					<label for="checkall">全选</label>
+					<button class="btn" v-on="click:refresh">
+					<span class="mui-icon mui-icon-refresh"></span>
+					刷新
+					</button>
+					
+					<button class="start btn btn-blue" id="startbtn" v-on="click:build">开始构建</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="log" class="log">
+		<div id="logcontent" class="content">
+			# 待就绪...
+		</div>
+	</div>
+
+	<div id="dragmask" v-show="showDragMask" class="drag-mask">
+		<span class="ico_forder"></span>
+		<p>拖放目录到这里即可打开项目</p>
+	</div>
+
+	<script type="text/javascript" src="../libs/jquery.min.js"></script>
+	<script type="text/javascript" src="../libs/vue.min.js"></script>
+	<script type="text/javascript" src="../libs/layer.js"></script>
+	<script type="text/javascript" src="../modules/index.js"></script>
+</body>
+</html>

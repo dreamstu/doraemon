@@ -1,0 +1,6 @@
+bower_components
+vendor
+public/libs
+node_modules
+vendor
+*.log

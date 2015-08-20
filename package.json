@@ -1,0 +1,26 @@
+{
+  "name": "doraemon",
+  "main": "public/pages/index.html",
+  "version": "0.0.4",
+  "description": "CMD Module Build Tools（CMBT）",
+  "window": {
+    "icon": "./public/images/icon.png",
+    "toolbar": false,
+    "width": 900,
+    "height": 556,
+    "resizable": false,
+    "fullscreen": false,
+    "show_in_taskbar": true,
+    "kiosk": false,
+    "frame": true
+  },
+  "dependencies": {
+    "quick-build-core": "^1.1.4",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bowercopy": "^1.2.3",
+    "load-grunt-tasks": "^3.2.0"
+  }
+}
