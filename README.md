@@ -15,7 +15,7 @@ A CMD Module Build Tools（CMBT）
 
 # 如何使用
 1.下载源码
-- run bower & grunt
+- run bower install & npm install & grunt
 - 利用  nw-app-builder 生成可执行文件
  - [nw-app-builder](https://github.com/dreamstu/nw-app-builder.git)
 - 运行生成的可执行文件
